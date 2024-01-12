@@ -51,6 +51,15 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
 -  `configs/`: This sub-directory contains configuration files for dense models, sparse models, and static sparsity (BigBird, Longformer, etc.).
 -  `data/`: This sub-directory is intended for storing manually downloaded datasets. Only the CLOTH dataset needs to be stored here, because GLUE and SQuAD are downloaded and managed automatically by the :hugs: ​transformers library.
 -  `hardware/`: This sub-directory holds code related to the hardware implementation of SALOv2.
+   -  `src/accelerator`: This sub-directory contains the main source code of spatial accelerator:
+      -  `Arithmetic.scala`: This file includes the supportive fixed-point arithmetic functions (Bitwidth up/down-cast) that are useful in the hardware implementation.
+      -  `PE.scala`: This file includes the core of the internal PE design in SALO. It internally uses Multiplexer to route the correct dataflow in different stages according to the signal. In the computation, it uses fixed-point arithmetic to minimize the hardware overhead. Specifically, SALO follows the method proposed in Softermax that uses a piece-wise linear function to fit the exponential function in attention mechanism. The slope and y-interception are stored in the lookup-table. We obtain the slope and y-interception by the code in `piecewise_linear/piecewise_linear.py`.
+      -  `PEArray.scala`: This file includes the PE array design in SALO. The PE design in `PE.scala` is duplicated and connected to build a PE array with the external inverse modules and weighted sum modules.
+      -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
+   -  `src/matching`: This sub-directory contains the main source code of pattern matching module:
+      -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
+      -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
+      -  -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
 -  `outputs/`: This sub-directory is intended for storing training and evaluation results.
 -  `performance_model/performance_model.py`: The performance model estimates the computation FLOPS in each stage and calculates the number of cycles to run.
 -  `scripts/`: This sub-directory holds the shell scripts for running experiments.
