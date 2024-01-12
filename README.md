@@ -70,16 +70,6 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
 -  `quant_utils.py`: This file contains some helper functions related to quantization.
 
 
-## Hardware Design
-The hardware design of SALO is located in `hardware\src\main\scala\sa`. It is implemented by Chisel3. Here we list the explanations of the main parts of SALO.
-
-+ `hardware\src\main\scala\sa\Arithmetic.scala`: This file includes the supportive fixed-point arithmetic functions (Bitwidth up/down-cast) that are useful in the hardware implementation.
-+ `hardware\src\main\scala\sa\InverseModule.scala`: This file includes the required module to obtain the inverse of the sum of exp($\frac{1}{\sum_{k}\exp(S_{ik})}$) in the sparse attention mechanism. Use a unified divisor and broadcast the result to the PE row can help save resources.
-+ `hardware\src\main\scala\sa\PE.scala`: This file includes the core of the internal PE design in SALO. It internally uses Multiplexer to route the correct dataflow in different stages according to the signal. In the computation, it uses fixed-point arithmetic to minimize the hardware overhead. Specifically, SALO follows the method proposed in Softermax that uses a piece-wise linear function to fit the exponential function in attention mechanism. The slope and y-interception are stored in the lookup-table. We obtain the slope and y-interception by the code in `piecewise_linear/piecewise_linear.py`.
-+ `hardware\src\main\scala\sa\WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
-+ `hardware\src\main\scala\sa\Mem.scala`: This file includes the memory part of SALO.
-+ `hardware\src\main\scala\sa\PEArray.scala`: This file includes the PE array design in SALO. The PE design in `PE.scala` is duplicated and connected to build a PE array with the external inverse modules and weighted sum modules. 
-
 ## Hardware Synthesis
 The Chisel implementation can be compiled to verilog to be further synthesized. To emit the verilog code, you can enter the directory `hardware` and run
 ```shell
