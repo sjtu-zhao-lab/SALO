@@ -33,7 +33,7 @@ We use SynopsysDC2016 to synthesize the hardware design to obtain area and power
 dc_shell-t -f compile_dc.tcl
 ```
 The synthesis report is shown below:
-|Parameter|Value|
+|Parameter|Value|Value|
 |-|-|-|
 |Frequency|500MHz|1GHz|
 |Power|0.53W|2.07W|
