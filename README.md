@@ -57,9 +57,9 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
       -  `PEArray.scala`: This file includes the PE array design in SALO. The PE design in `PE.scala` is duplicated and connected to build a PE array with the external inverse modules and weighted sum modules.
       -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
    -  `src/matching`: This sub-directory contains the main source code of pattern matching module:
-      -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
-      -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
-      -  -  `WeightedSumModule.scala`: This file includes the weighted sum module design to support window splitting techniques mentioned in the paper.
+      -  `PE.scala`: This file includes the core of the internal PE design of pattern matching module in SALOv2.
+      -  `BitonicSort.scala`: The bitonic-sorter in pattern matching module which selects the topk elements of a sequence.
+      -  `LocalModule.scala`: The sliding window sorter in pattern matching module which performs a sliding window summation and outputs the maximum value.
 -  `outputs/`: This sub-directory is intended for storing training and evaluation results.
 -  `performance_model/performance_model.py`: The performance model estimates the computation FLOPS in each stage and calculates the number of cycles to run.
 -  `scripts/`: This sub-directory holds the shell scripts for running experiments.
