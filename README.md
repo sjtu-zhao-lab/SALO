@@ -43,27 +43,17 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
 
 3.  Comparison with CPU and GPU.
 
-    You can measure the latency of dense attention on CPU and GPU by executing `bench_cpu_gpu.py`.
+    In the software part, we provide the performance comparison between SALOv2 and CPU/GPU, based on the inference speed. The benchmark code that evaluates the CPU and GPU performance on different workloads mentioned in the paper is located at `benchmark/bench_cpu_gpu.py`.
 
 ## Internals
 
 -  `configs/`: This sub-directory contains configuration files for dense models, sparse models, and static sparsity (BigBird, Longformer, etc.).
 -  `data/`: This sub-directory is intended for storing manually downloaded datasets. Only the CLOTH dataset needs to be stored here, because GLUE and SQuAD are downloaded and managed automatically by the :hugs: ​transformers library.
--  `hardware/`: This sub-directory holds code related to the hardware implementation of Sanger. For the sake of clarity, we will describe this part separately in the next section.
-   -  `src/main/scala/pe_row`: This sub-directory contains the main source code of the three hardware modules:
-      -  `pe_row.scala`: The reconfigurable sparse PE array for computing SDDMM and SpMM.
-      -  `mask.scala`: The dense low-bit PE array which produce the attention mask.
-      -  `pack.scala`: The pack module which convert the attention mask to the configuration of the sparse PE array.
-   -  `src/test/scala/pe_row`: This sub-directory contains the unit tests for the hardware modules.
-      -  `pe_row_test.scala`: Unit test for the sparse PE array.
-      -  `mask_test.scala`: Unit test for the dense PE array.
-      -  `pack_text.scala`: Unit test for the pack module.
+-  `hardware/`: This sub-directory holds code related to the hardware implementation of SALOv2.
 -  `outputs/`: This sub-directory is intended for storing training and evaluation results.
 -  `scripts/`: This sub-directory holds the shell scripts for running experiments.
--  `bench_cpu_gpu.py`: This script benchmarks dense attention on CPU and GPU.
--  `bench_sanger.py`: This script is used to simulate the hardware performance of Sanger.
--  `modeling_<​​​​model>​​​.py`: These files contain implementations of the BERT, GPT2 and BART models, supporting both dense and sparse attention.
--  `modeling_sanger_attn.py`: This file contains an implementation of the sparse attention algorithm of Sanger, and some helper functions for measuring sparsity and load balance.
+-  `modeling_bert​​​.py`: These files contain implementations of the BERT models, supporting both dense and sparse attention.
+-  `salo_sparse.py`: This file contains an implementation of the sparse attention algorithm of SALOv2.
 -  `modeling_static_spattn.py`: This file implements some attention mechanisms with static sparsity.
 -  `run_<task>​​​​​​​.py`: These files are intended for training or evaluating models on GLUE, SQuAD or CLOTH.
 -  `quant_utils.py`: This file contains some helper functions related to quantization.
