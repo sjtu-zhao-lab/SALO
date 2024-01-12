@@ -60,7 +60,7 @@ from modeling_static_spattn import build_static_sparsity_mask, apply_static_spar
 from modeling_sanger_spattn import gen_sparsity_mask, quant_qk_matmul, prune_attn_scores
 from quant_utils import build_quant_matmul
 
-from SALO.finetune_optimized import matchingStatic_Block
+from salo_sparse import matchingStatic_Block
 
 logger = logging.get_logger(__name__)
 
