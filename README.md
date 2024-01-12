@@ -1,8 +1,74 @@
-# SALO
-This repository implements the proposed spatial accelerator design in the paper SALO: An Efficient Spatial Accelerator Enabling Hybrid Sparse Attention Mechanisms for Long Sequences (DAC-22)
+# SALOV2
+This repository implements the proposed spatial accelerator design in the paper Hardware-Software Co-Design Enabling Static and Dynamic Sparse Attention Mechanisms
 
 ## Overview
-SALO is an spatial accelerator design aiming at efficiently handling hybrid sparse attention patterns statically, including sliding window attention, dilated sliding window attention, and global attention. It can primitively support popular NLP and CV models like Longformer, Vision Longformer.
+SALOv2, a hardware-software co-design framework that facilitates efficient processing of static and dynamic sparse attention mechanisms. Effective techniques and designs are proposed at software and hardware levels, making SALOv2 applicable to various scenarios.
+
+## Requirements
+
+-  For software experiments
+   -  CUDA SDK >= 10.1
+   -  Python >= 3.7
+   -  PyTorch >= 1.7.0
+   -  :hugs: Transformers 4.7.0
+-  For hardware experiments
+   -  JDK 8 or 11
+   -  Scala compiler `sbt`. 
+
+## Software experiments
+
+1.  Evaluate SALO2 performance
+
+    1.  Train a model with SALOv2 sparse attention. 
+
+        We provide scripts for training in the `scripts/` sub-directory. For example, to train a SALOv2_sparse BERT-Base model on SQuAD, you can execute `scripts/train_sparse_on_squad.sh`. Note that you have to pass in an appropriate configuration file, which you can find in `configs/`. You can skip this step if you choose to load a fine-tuned checkpoint directly.
+
+    2.  Evaluate the fine-tuned model. 
+
+        We also provide scripts for evaluation in `scripts/`. For example, to evaluate the sparse model from the last step, you can execute `scripts/eval_sparse_on_squad.sh`. If you need to load a checkpoint from a non-standard location, be sure to change the path in the script. When the evaluation is complete, the script should print out the accuracy.
+
+    3.  Estimate the hardware performance of SALOv2. 
+
+        We implement a simple simulator in `bench_salo.py` that estimates the latency of executing an attention layer on SALOv2.
+
+2.  Comparison with dense attention and static sparse attention.
+
+    1.  Train a model with dense or static sparse attention. 
+
+        We provide dedicated scripts for train models with dense attention (e.g. `scripts/train_dense_on_squad.sh`). To train a model with static sparse attention, you can use the same script as Sanger and pass in an appropriate configuration file (e.g. `bert_base_longformer.json`).
+
+    2.  Evaluate the fine-tuned model. 
+
+        The process is similar to evaluating Sanger models. Note that you also need to use different scripts when evaluating dense models.
+
+3.  Comparison with CPU and GPU.
+
+    You can measure the latency of dense attention on CPU and GPU by executing `bench_cpu_gpu.py`.
+
+## Internals
+
+-  `configs/`: This sub-directory contains configuration files for dense models, sparse models, and static sparsity (BigBird, Longformer, etc.).
+-  `data/`: This sub-directory is intended for storing manually downloaded datasets. Only the CLOTH dataset needs to be stored here, because GLUE and SQuAD are downloaded and managed automatically by the :hugs: ​transformers library.
+-  `hardware/`: This sub-directory holds code related to the hardware implementation of Sanger. For the sake of clarity, we will describe this part separately in the next section.
+   -  `src/main/scala/pe_row`: This sub-directory contains the main source code of the three hardware modules:
+      -  `pe_row.scala`: The reconfigurable sparse PE array for computing SDDMM and SpMM.
+      -  `mask.scala`: The dense low-bit PE array which produce the attention mask.
+      -  `pack.scala`: The pack module which convert the attention mask to the configuration of the sparse PE array.
+   -  `src/test/scala/pe_row`: This sub-directory contains the unit tests for the hardware modules.
+      -  `pe_row_test.scala`: Unit test for the sparse PE array.
+      -  `mask_test.scala`: Unit test for the dense PE array.
+      -  `pack_text.scala`: Unit test for the pack module.
+-  `outputs/`: This sub-directory is intended for storing training and evaluation results.
+-  `scripts/`: This sub-directory holds the shell scripts for running experiments.
+-  `bench_cpu_gpu.py`: This script benchmarks dense attention on CPU and GPU.
+-  `bench_sanger.py`: This script is used to simulate the hardware performance of Sanger.
+-  `modeling_<​​​​model>​​​.py`: These files contain implementations of the BERT, GPT2 and BART models, supporting both dense and sparse attention.
+-  `modeling_sanger_attn.py`: This file contains an implementation of the sparse attention algorithm of Sanger, and some helper functions for measuring sparsity and load balance.
+-  `modeling_static_spattn.py`: This file implements some attention mechanisms with static sparsity.
+-  `run_<task>​​​​​​​.py`: These files are intended for training or evaluating models on GLUE, SQuAD or CLOTH.
+-  `quant_utils.py`: This file contains some helper functions related to quantization.
+
+
 
 ## Performance Evaluation
 SALO v1 is not a software-hardware co-design. It doesn't introduce intrusive modifications to the algorithm deisgn, which won't cause accuracy degradation. Thus in the software part, we mainly provide the performance comparison between SALO v1 and CPU/GPU, based on the inference speed. The benchmark code that evaluates the CPU and GPU performance on 3 workloads mentioned in the paper is located at `benchmark/bench_cpu_gpu.py`. To run the script successfully, we recommend our experiment settings:
