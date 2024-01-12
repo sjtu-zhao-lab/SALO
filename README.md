@@ -29,7 +29,7 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
 
     3.  Estimate the hardware performance of SALOv2. 
 
-        We implement a simple simulator in `bench_salo.py` that estimates the latency of executing an attention layer on SALOv2.
+        We implement a simple simulator in `performance_model/performance_model.py` that estimates the latency of executing an attention layer on SALOv2.
 
 2.  Comparison with dense attention and static sparse attention.
 
@@ -47,10 +47,12 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
 
 ## Internals
 
+-  `benchmark/bench_cpu_gpu.py`: This script benchmarks on CPU and GPU.
 -  `configs/`: This sub-directory contains configuration files for dense models, sparse models, and static sparsity (BigBird, Longformer, etc.).
 -  `data/`: This sub-directory is intended for storing manually downloaded datasets. Only the CLOTH dataset needs to be stored here, because GLUE and SQuAD are downloaded and managed automatically by the :hugs: ​transformers library.
 -  `hardware/`: This sub-directory holds code related to the hardware implementation of SALOv2.
 -  `outputs/`: This sub-directory is intended for storing training and evaluation results.
+-  `performance_model/performance_model.py`: The performance model estimates the computation FLOPS in each stage and calculates the number of cycles to run.
 -  `scripts/`: This sub-directory holds the shell scripts for running experiments.
 -  `modeling_bert​​​.py`: These files contain implementations of the BERT models, supporting both dense and sparse attention.
 -  `salo_sparse.py`: This file contains an implementation of the sparse attention algorithm of SALOv2.
@@ -58,16 +60,6 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
 -  `run_<task>​​​​​​​.py`: These files are intended for training or evaluating models on GLUE, SQuAD or CLOTH.
 -  `quant_utils.py`: This file contains some helper functions related to quantization.
 
-
-
-## Performance Evaluation
-SALO v1 is not a software-hardware co-design. It doesn't introduce intrusive modifications to the algorithm deisgn, which won't cause accuracy degradation. Thus in the software part, we mainly provide the performance comparison between SALO v1 and CPU/GPU, based on the inference speed. The benchmark code that evaluates the CPU and GPU performance on 3 workloads mentioned in the paper is located at `benchmark/bench_cpu_gpu.py`. To run the script successfully, we recommend our experiment settings:
-+ CUDA >= 10.1
-+ Python >= 3.8
-+ PyTorch >= 1.7.0
-+ timm >= 0.3.2
-
-To evaluate the performance of SALO, we developed a cycle-accurate performance model in `performance_model/performance_model.py`. The performance model estimates the computation FLOPS in each stage and calculates the number of cycles to run.
 
 ## Hardware Design
 The hardware design of SALO is located in `hardware\src\main\scala\sa`. It is implemented by Chisel3. Here we list the explanations of the main parts of SALO.
