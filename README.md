@@ -37,7 +37,6 @@ The synthesis report is shown below:
 |-|-|-|
 |Frequency|500MHz|1GHz|
 |Power|0.53W|2.07W|
-|Area|4.56$\mathrm{mm}^2$|4.56$\mathrm{mm}^2$|
 
 ## Citation
 Guan Shen, Jieru Zhao, Quan Chen, Jingwen Leng, Chao Li, and Minyi Guo. 2022. SALO: an efficient spatial accelerator enabling hybrid sparse attention mechanisms for long sequences. In Proceedings of the 59th ACM/IEEE Design Automation Conference (DAC '22).
