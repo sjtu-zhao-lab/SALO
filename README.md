@@ -34,7 +34,7 @@ dc_shell-t -f compile_dc.tcl
 ```
 The synthesis report is shown below:
 |Parameter|Value|
-|-|-|-|
+|-|-|
 |Frequency|500MHz|
 |Power|532.66mW|
 |Area|4.56 $mm^2$|
