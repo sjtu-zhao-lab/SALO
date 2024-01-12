@@ -70,15 +70,7 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
 -  `quant_utils.py`: This file contains some helper functions related to quantization.
 
 
-## Hardware Synthesis
-The Chisel implementation can be compiled to verilog to be further synthesized. To emit the verilog code, you can enter the directory `hardware` and run
-```shell
-sbt run
-```
-We use SynopsysDC2016 to synthesize the hardware design to obtain area and power report. We use [FreePDK45nm](https://vlsiarch.ecen.okstate.edu/flows/FreePDK_SRC/osu_freepdk_1.0/lib/files/) technology. To make a fair comparison with [Sanger](https://dl.acm.org/doi/abs/10.1145/3466752.3480125), we follow the 500MHz frequency setting in the hardware synthesis part. To reproduce the report, you need to copy the generated verilog file `PEArray.v`, the technology file `gscl45nm.db`, and the compile script `compile_dc.tcl` to the same directory. Then run the following command in the shell
-```shell 
-dc_shell-t -f compile_dc.tcl
-```
+## Hardware Synthesis Report
 The synthesis report is shown below:
 |Parameter|Value|
 |-|-|
