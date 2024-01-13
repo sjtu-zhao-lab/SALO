@@ -10,10 +10,16 @@ SALOv2, a hardware-software co-design framework that facilitates efficient proce
    -  CUDA SDK >= 10.1
    -  Python >= 3.7
    -  PyTorch >= 1.7.0
-   -  :hugs: Transformers 4.7.0
+   -  Transformers 4.7.0
 -  For hardware experiments
    -  JDK 8 or 11
    -  Scala compiler `sbt`. 
+
+## Performance Evaluation
+We provide the performance comparison between SALO v1 and CPU/GPU, based on the inference speed. The benchmark code that evaluates the CPU and GPU performance on different workloads mentioned in the paper is located at `benchmark/bench_cpu_gpu.py`. 
+
+To evaluate the performance of SALOv2, we developed a cycle-accurate performance model in `performance_model/performance_model.py`. The performance model estimates the computation FLOPS in each stage and calculates the number of cycles to run.
+
 
 ## Software experiments
 
