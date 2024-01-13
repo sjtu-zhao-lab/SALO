@@ -33,11 +33,11 @@ We use SynopsysDC2016 to synthesize the hardware design to obtain area and power
 dc_shell-t -f compile_dc.tcl
 ```
 The synthesis report is shown below:
-|Parameter|Value|
-|-|-|
-|Frequency|500MHz|
-|Power|532.66mW|
-|Area|4.56 $mm^2$|
+|Parameter|Value|Value|
+|-|-|-|
+|Frequency|500MHz|1Ghz|
+|Power|0.53W|2.06W|
+|Area|4.56 $mm^2$|2.22 + ? $mm^2$|
 
 ## Citation
 Guan Shen, Jieru Zhao, Quan Chen, Jingwen Leng, Chao Li, and Minyi Guo. 2022. SALO: an efficient spatial accelerator enabling hybrid sparse attention mechanisms for long sequences. In Proceedings of the 59th ACM/IEEE Design Automation Conference (DAC '22).
