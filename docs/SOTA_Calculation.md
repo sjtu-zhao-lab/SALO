@@ -22,4 +22,5 @@ the throughput of DTQAtten is 952 GOP/s.
 All 3 throughputs are data obtained by scaling down to a 128 multiplier. So we don't need to do additional scaling.
 
 So, the attention time of Energon is 1.05Gop / 612 GOP/s = 1.72ms. the attention time of DTQAtten is 1.05Gop / 952 GOP/s = 1.10ms. the attention time of Energon is 1.05Gop / 928 GOP/s = 1.13ms.
-
+For Sanger and SALOv2: We measure the performance with the same workload using their performance
+models. The attention times of Sanger and SALO2 are 1.44ms and 0.96ms, respectively.
