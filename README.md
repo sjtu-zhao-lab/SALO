@@ -58,6 +58,11 @@ We also provide scripts for evaluation in `scripts/`. For example, to evaluate t
 
 
 ## Hardware Synthesis Report
+The Chisel implementation can be compiled to verilog to be further synthesized. To emit the verilog code, you can enter the directory `hardware` and run
+```shell
+sbt run
+```
+We use SynopsysDC2016 to synthesize the hardware design to obtain area and power report. We use [FreePDK45nm](https://vlsiarch.ecen.okstate.edu/flows/FreePDK_SRC/osu_freepdk_1.0/lib/files/) technology.
 The synthesis report is shown below:
 |Parameter|Value|
 |-|-|
