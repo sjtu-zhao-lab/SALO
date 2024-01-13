@@ -46,7 +46,7 @@ We also provide scripts for evaluation in `scripts/`. For example, to evaluate t
 ## Software Design
 -  `benchmark/bench_cpu_gpu.py`: This script benchmarks on CPU and GPU.
 -  `configs/`: This sub-directory contains configuration files for dense models, sparse models, and static sparsity (BigBird, Longformer, etc.).
--  `data/`: This sub-directory is intended for storing manually downloaded datasets. Only the CLOTH dataset needs to be stored here, because GLUE and SQuAD are downloaded and managed automatically by the :hugs: ​transformers library.
+-  `data/`: This sub-directory is intended for storing manually downloaded datasets. Only the CLOTH dataset needs to be stored here, because GLUE and SQuAD are downloaded and managed automatically by the transformers library.
 -  `outputs/`: This sub-directory is intended for storing training and evaluation results.
 -  `performance_model/performance_model.py`: The performance model estimates the computation FLOPS in each stage and calculates the number of cycles to run.
 -  `scripts/`: This sub-directory holds the shell scripts for running experiments.
@@ -61,9 +61,9 @@ We also provide scripts for evaluation in `scripts/`. For example, to evaluate t
 The synthesis report is shown below:
 |Parameter|Value|
 |-|-|
-|Frequency|500MHz|
-|Power|532.66mW|
-|Area|4.56 $mm^2$|
+|Frequency|1GHz|
+|Power|3.75W|
+|Area|5.97 $mm^2$|
 
 ## Citation
 Guan Shen, Jieru Zhao, Quan Chen, Jingwen Leng, Chao Li, and Minyi Guo. 2022. SALO: an efficient spatial accelerator enabling hybrid sparse attention mechanisms for long sequences. In Proceedings of the 59th ACM/IEEE Design Automation Conference (DAC '22).
