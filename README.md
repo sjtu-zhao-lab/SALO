@@ -61,8 +61,8 @@ We also provide scripts for evaluation in `scripts/`. For example, to evaluate t
 The synthesis report is shown below:
 |Parameter|Value|
 |-|-|
-|Frequency|1GHz|
-|Power|3.75W|
+|Frequency|1 $GHz$|
+|Power|3.75 $W$|
 |Area|5.97 $mm^2$|
 
 ## Citation
