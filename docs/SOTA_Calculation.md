@@ -3,8 +3,8 @@ The evaluation is conducted on the same SQuAD v1.1 dataset with the same input s
 Assuming all the designs use 128 multipliers clocked at 1GHz.
 
 The GOP of attention in SQuAD v1.1 is (1-layer BERT):
-$\times$
-(384 $\times$ 768\times768\times3)+(384\times768\times384)+(384\times384\times768)+(384\times768\times768)=1.05Gop. 
+
+(384 $\times$ 768 $\times$ 768 $\times$ 3)+(384 $\times$ 768 $\times$ 384)+(384 $\times$ 384 $\times$ 768)+(384 $\times$ 768 $\times$ 768)=1.05Gop. 
 
 From the Table 4 of Sanger, we have the throughput of A3, SpAtten, FTRANS and Sanger.
 ![image](https://github.com/sjtu-zhao-lab/SALO/assets/103621266/2e5d7766-68a8-4160-a294-b70a9bc6a0b4)
