@@ -25,11 +25,11 @@ To evaluate the performance of SALOv2, we developed a cycle-accurate performance
 
 1.  Train a model with SALOv2 sparse attention. 
 
-        We provide scripts for training in the `scripts/` sub-directory. For example, to train a SALOv2_sparse BERT-Base model on SQuAD, you can execute `scripts/train_sparse_on_squad.sh`. Note that you have to pass in an appropriate configuration file, which you can find in `configs/`. You can skip this step if you choose to load a fine-tuned checkpoint directly.
+We provide scripts for training in the `scripts/` sub-directory. For example, to train a SALOv2_sparse BERT-Base model on SQuAD, you can execute `scripts/train_sparse_on_squad.sh`. Note that you have to pass in an appropriate configuration file, which you can find in `configs/`. You can skip this step if you choose to load a fine-tuned checkpoint directly.
 
 2.  Evaluate the fine-tuned model. 
 
-        We also provide scripts for evaluation in `scripts/`. For example, to evaluate the sparse model from the last step, you can execute `scripts/eval_sparse_on_squad.sh`. If you need to load a checkpoint from a non-standard location, be sure to change the path in the script. When the evaluation is complete, the script should print out the accuracy.
+We also provide scripts for evaluation in `scripts/`. For example, to evaluate the sparse model from the last step, you can execute `scripts/eval_sparse_on_squad.sh`. If you need to load a checkpoint from a non-standard location, be sure to change the path in the script. When the evaluation is complete, the script should print out the accuracy.
 
 ## Hardware Design
 -  `hardware/`: This sub-directory holds code related to the hardware implementation of SALOv2.
