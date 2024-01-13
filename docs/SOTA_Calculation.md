@@ -4,7 +4,7 @@ Assuming all the designs use 128 multipliers clocked at 1GHz.
 
 The GOP of attention in SQuAD v1.1 is (1-layer BERT):
 
-(384 $\times$ 768 $\times$ 768 $\times$ 3)+(384 $\times$ 768 $\times$ 384)+(384 $\times$ 384 $\times$ 768)+(384 $\times$ 768 $\times$ 768)=1.05Gop. 
+(384 $\times$ 768 $\times$ 768 $\times$ 3)+(384 $\times$ 768 $\times$ 384)+(384 $\times$ 384 $\times$ 768)+(384 $\times$ 768 $\times$ 768)=1.05GOP. 
 
 From the Table 4 of Sanger, we have the throughput of A3, SpAtten, FTRANS and Sanger.
 ![image](https://github.com/sjtu-zhao-lab/SALO/assets/103621266/2e5d7766-68a8-4160-a294-b70a9bc6a0b4)
@@ -16,8 +16,10 @@ the throughput of FACT is 928 GOP/s.
 
 From the Table 1 of DTQAtten, we have the throughput of DTQAtten.
 ![image](https://github.com/sjtu-zhao-lab/SALO/assets/103621266/e6ec08b3-5c6a-41c3-aede-d1985a8d5b18)
-the throughput of DTQAtten is 928 GOP/s.
+
+the throughput of DTQAtten is 952 GOP/s.
 
 All 3 throughputs are data obtained by scaling down to a 128 multiplier. So we don't need to do additional scaling.
 
+So, the attention time of Energon is 1.05Gop / 612 GOP/s = 1.72ms. the attention time of DTQAtten is 1.05Gop / 952 GOP/s = 1.10ms. the attention time of Energon is 1.05Gop / 928 GOP/s = 1.13ms.
 
