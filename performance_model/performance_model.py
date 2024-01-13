@@ -105,4 +105,4 @@ if __name__ == "__main__":
         benchmark = SALOBench(seq_len=seq_len,block_size=64, window_size=8, nums_global=1,nums_random=3, dim=768, num_heads=16, pe_rows=64, pe_cols=8, pe_glbs=1, pe_randoms=3, freq=1)
         qkv_proj_lat, qkv_sparse_lat, out_proj_lat = benchmark.eval()
         acc_total_lat = qkv_proj_lat + qkv_sparse_lat + out_proj_lat
-        print(f"128 max latency: {(32 * perprocess_lat + ((64 * 12 + 8 ) / 128) * (qkv_proj_lat + qkv_sparse_lat + out_proj_lat)/((seq_len / 64)**2)) * 1000:.5f}")
+        print(f"128 mac latency: {(32 * perprocess_lat + ((64 * 12 + 8 ) / 128) * (qkv_proj_lat + qkv_sparse_lat + out_proj_lat)/((seq_len / 64)**2)) * 1000:.5f}")
