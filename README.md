@@ -18,8 +18,6 @@ and
   journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems}, 
   title={Hardware-Software Co-Design Enabling Static and Dynamic Sparse Attention Mechanisms}, 
   year={2024},
-  volume={},
-  number={},
   pages={1-1},
   keywords={Sparse matrices;Task analysis;Transformers;Graphics processing units;Complexity theory;Vectors;Runtime;Attention acceleration;static/dynamic sparsity},
   doi={10.1109/TCAD.2024.3373592}}
