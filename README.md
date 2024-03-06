@@ -13,6 +13,16 @@ Please cite our paper if you find SALO useful for your research:
 ```
 and
 ```
+@ARTICLE{10460307,
+  author={Zhao, Jieru and Zeng, Pai and Shen, Guan and Chen, Quan and Guo, Minyi},
+  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems}, 
+  title={Hardware-Software Co-Design Enabling Static and Dynamic Sparse Attention Mechanisms}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Sparse matrices;Task analysis;Transformers;Graphics processing units;Complexity theory;Vectors;Runtime;Attention acceleration;static/dynamic sparsity},
+  doi={10.1109/TCAD.2024.3373592}}
 ```
 
 ## Overview
