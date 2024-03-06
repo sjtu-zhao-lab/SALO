@@ -1,5 +1,19 @@
 # SALOV2
-This repository implements the proposed spatial accelerator design in the paper Hardware-Software Co-Design Enabling Static and Dynamic Sparse Attention Mechanisms
+This repository implements the proposed spatial accelerator design in the paper Hardware-Software Co-Design Enabling Static and Dynamic Sparse Attention Mechanisms (TCAD 2024)
+
+Please cite our paper if you find COMBA useful for your research:
+```
+@article{Shen2022SALOAE,
+  title={SALO: an efficient spatial accelerator enabling hybrid sparse attention mechanisms for long sequences},
+  author={Guan Shen and Jieru Zhao and Quan Chen and Jingwen Leng and C. Li and Minyi Guo},
+  journal={Proceedings of the 59th ACM/IEEE Design Automation Conference},
+  year={2022},
+  url={https://api.semanticscholar.org/CorpusID:250113485}
+}
+```
+and
+```
+```
 
 ## Overview
 SALOv2, a hardware-software co-design framework that facilitates efficient processing of static and dynamic sparse attention mechanisms. Effective techniques and designs are proposed at software and hardware levels, making SALOv2 applicable to various scenarios.
