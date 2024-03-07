@@ -3,24 +3,22 @@ This repository implements the proposed spatial accelerator design in the paper 
 
 Please cite our paper if you find SALO useful for your research:
 ```
-@article{Shen2022SALOAE,
+@inproceedings{shen2022salo,
   title={SALO: an efficient spatial accelerator enabling hybrid sparse attention mechanisms for long sequences},
-  author={Guan Shen and Jieru Zhao and Quan Chen and Jingwen Leng and C. Li and Minyi Guo},
-  journal={Proceedings of the 59th ACM/IEEE Design Automation Conference},
-  year={2022},
-  url={https://api.semanticscholar.org/CorpusID:250113485}
+  author={Shen, Guan and Zhao, Jieru and Chen, Quan and Leng, Jingwen and Li, Chao and Guo, Minyi},
+  booktitle={Proceedings of the 59th ACM/IEEE Design Automation Conference},
+  pages={571--576},
+  year={2022}
 }
 ```
 and
 ```
-@ARTICLE{10460307,
-  author={Zhao, Jieru and Zeng, Pai and Shen, Guan and Chen, Quan and Guo, Minyi},
-  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems}, 
-  title={Hardware-Software Co-Design Enabling Static and Dynamic Sparse Attention Mechanisms}, 
-  year={2024},
-  pages={1-1},
-  keywords={Sparse matrices;Task analysis;Transformers;Graphics processing units;Complexity theory;Vectors;Runtime;Attention acceleration;static/dynamic sparsity},
-  doi={10.1109/TCAD.2024.3373592}}
+@article{shen2023codesign,
+  author={Zhao, Jieru and Zeng, Pai and Shen, Guan and Chen, Quan and Guo, Minyi},  
+  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},
+  title={Hardware-software co-design enabling static and dynamic sparse attention mechanisms},
+  year={2024}
+}
 ```
 
 ## Overview
