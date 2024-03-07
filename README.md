@@ -13,7 +13,7 @@ Please cite our paper if you find SALO useful for your research:
 ```
 and
 ```
-@article{shen2023codesign,
+@article{zhao2024codesign,
   author={Zhao, Jieru and Zeng, Pai and Shen, Guan and Chen, Quan and Guo, Minyi},  
   journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},
   title={Hardware-software co-design enabling static and dynamic sparse attention mechanisms},
